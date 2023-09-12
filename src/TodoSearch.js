@@ -1,7 +1,11 @@
 import './TodoSearch.css'
 import iconBuscar from './assets/buscar.png'
+import React from 'react';
 
 function TodoSearch () {
+
+    
+
     return (
         <div className='todoSearch'>
             <div className='search'>
