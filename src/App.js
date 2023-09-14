@@ -16,25 +16,94 @@ const defaultTodo = [
 ]
 
 function App() {
+
+  //states
+  const [searchValue,setSearchValue] = React.useState('');
+
+  const [typeSearch, setTypeSearch] = React.useState('All')
+  
+  const [task, setTask] = React.useState(defaultTodo);
+    
+  console.log(searchValue)
+  //derivate states
+  const taskCompleted = task.filter(task => !!task.completed).length
+
+  const totalTask = task.length;
+
+  const searchedTask = task.filter((task) => {
+    switch (typeSearch) {
+      case 'All': 
+          const taskText = task.text.toLowerCase();
+          const searchText = searchValue.toLowerCase();
+          return taskText.includes(searchText)
+        break;
+      case 'Complete': 
+          return task.completed === true;
+        break;
+      case 'Pending': 
+        return task.completed === false
+      default:
+        break;
+    }
+  })
+
+  const completeTask = (text) => {
+
+    const newTask = [...task]
+    const taskIndex = newTask.findIndex(
+      (task) => task.text === text);
+    newTask[taskIndex].completed = true;
+    setTask(newTask);
+  };
+
+  const deleteTask = (text) => {
+    const newTask = [...task]
+
+    const taskIndex = newTask.findIndex(
+      (task) => task.text === text);
+    newTask.splice(taskIndex,1);
+    setTask(newTask);
+  };
+
+  
+  //componentes
   return (
     <React.Fragment>
 
       <Headers/>
+      <TodoCounter complete={taskCompleted} total={totalTask}/>
+      <TodoSearch 
+        searchValue={searchValue} 
+        setSearchValue={setSearchValue}
+        typeSearch = {typeSearch}
+        setTypeSearch = {setTypeSearch}
+      />
 
-      
-        <TodoCounter complete={15} total={20}/>
-        <TodoSearch />
+      <TodoList 
+       task = {task} 
+       setTask ={setTask}
+       totalTask = {totalTask}
+       searchedTask={searchedTask}
+       >
+        
+        {/* Se recorre el array y se crea uno nuevo para que inserto todos los todo item pasandole los propiedades */}
+        {searchedTask.map(todo => 
+          todo = [
+            <TodoItem
+              key = {todo.text} 
+              text = {todo.text} 
+              completed={todo.completed}
+              onCompleted = {() => {completeTask(todo[0].props.text)}}//forma como deberia ir ()=> completeTask(todo.text)
+              onDelete = { () => deleteTask(todo[0].props.text) }
+              
+            />
+          ]
+        )}
+      </TodoList>
 
-        <TodoList>
-          {/* Se recorre el array y se crea uno nuevo para que inserto todos los todo item pasandole los propiedades */}
-          {defaultTodo.map(todo => 
-            todo=[<TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>]
-            )}
-        </TodoList>
+      <CreateTodoButton/>
 
-        <CreateTodoButton/>
-
-        {/* <TodoPanel/> */}
+      {/* <TodoPanel/> */}
       
 
     </React.Fragment>

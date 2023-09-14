@@ -16,3 +16,16 @@
     bottom: 16px; */
     /* border-radius: 15px; */
 }
+
+.h3 {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    z-index: 5;
+}
+
+.h3Full {
+    z-index: 3;
+    display: none;
+}
