@@ -1,7 +1,7 @@
 
 import './CreateTodoBtn.css'
-import btnAdd from './assets/agregar.png'
-import {AddIcon} from './AddIcon'
+import btnAdd from '../assets/agregar.png'
+import {AddIcon} from '../TaskIcon/AddIcon'
 
 function CreateTodoButton() {
     return(

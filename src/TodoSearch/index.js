@@ -1,5 +1,5 @@
 import './TodoSearch.css'
-import iconBuscar from './assets/buscar.png'
+import iconBuscar from '../assets/buscar.png'
 import React from 'react';
 
 function TodoSearch ({searchValue, setSearchValue, typeSearch, setTypeSearch}) {

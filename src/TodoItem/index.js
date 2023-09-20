@@ -1,6 +1,6 @@
 import './TodoItem.css'
-import iconComplete from './assets/completar.png'
-import iconCancel from './assets/cancelar.png'
+import iconComplete from '../assets/completar.png'
+import iconCancel from '../assets/cancelar.png'
 import React from 'react';
 
 function TodoItem(props){
