@@ -22,6 +22,7 @@ function useLocalStorage (itemName, initialValue) {
           setItem(parsedItem)
         }
         console.log('error1')
+        console.log('error2',parsedItem)
         setLoading(false)
       } catch (error) {
         setLoading(false)
@@ -31,19 +32,32 @@ function useLocalStorage (itemName, initialValue) {
     },2000)
   },[ ])
 
-  
-
-
-
   const saveItem = (newItem) => {
     localStorage.setItem(itemName,JSON.stringify(newItem))
     setItem(newItem)
   }
 
-  return {item,
-          saveItem,
-          loading,
-          error}
+  return {
+    item,
+    saveItem,
+    loading,
+    error
+  }
 }
 
   export {useLocalStorage}
+
+
+
+
+  /* const defaultTodo = [
+  {text: 'Practice English', completed: true},
+  {text: 'Learn React.js', completed: false},
+  {text: 'be fullstack developer', completed:false},
+  {text: 'Get work in technology industry', completed:false}
+]
+localStorage.setItem('TASKS_V1', defaultTodo) 
+localStorage.removeItem('TASK_V1)
+ */
+
+//CUSTOM HOOKS

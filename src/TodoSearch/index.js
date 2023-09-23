@@ -1,8 +1,17 @@
 import './TodoSearch.css'
 import iconBuscar from '../assets/buscar.png'
 import React from 'react';
+import { TodoContext } from '../TodoContext';
 
-function TodoSearch ({searchValue, setSearchValue, typeSearch, setTypeSearch}) {
+function TodoSearch () {
+
+    const {
+        searchValue,
+        setSearchValue,
+        typeSearch,
+        setTypeSearch
+    } = React.useContext(TodoContext)
+
     return (
         <div className='todoSearch'>
             <div className='search'>
