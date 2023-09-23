@@ -9,7 +9,7 @@ import { CreateTodoButton } from '../CreateTodoBtn';
 import { TodosLoading } from "../TodosLoading";
 import { TodosEmpty } from "../TodosEmpty";
 import { TodosError } from "../TodosError";
-import { Modal } from "../modal";
+import { Modal } from "../Modal";
 import {TodoForm} from "../TodoForm";
 import { TodoContext } from "../TodoContext";
 
