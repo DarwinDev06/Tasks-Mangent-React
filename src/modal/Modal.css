@@ -11,10 +11,3 @@
     z-index: 5;
     top: 22%;
 }
-
-.btnCerrarModal {   
-    width: 100px;
-    height: 50px;
-    background: green;
-    border: none;
-}

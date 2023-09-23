@@ -6,7 +6,7 @@ import './Modal.css'
 
 function Modal ({children}) {
 
-    const {openModal, setOpenModal} = React.useContext(TodoContext)
+    /* const {openModal, setOpenModal} = React.useContext(TodoContext) */
 
     return ReactDOM.createPortal (
         <div className="modal">
