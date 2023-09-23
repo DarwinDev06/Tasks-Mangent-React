@@ -1,65 +1,99 @@
-import React from 'react';
+import React from "react";
+import {App} from ".";
+import { Headers } from '../Headers';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
-import { TodosLoading } from '../TodosLoading';
-import { TodosError } from '../TodosError';
-import { EmptyTodos } from '../EmptyTodos';
-import { CreateTodoButton } from '../CreateTodoButton';
-import { TodoForm } from '../TodoForm';
-import { Modal } from '../Modal';
-import { TodoContext } from '../TodoContext';
+import { CreateTodoButton } from '../CreateTodoBtn';
+import { TodosLoading } from "../TodosLoading";
+import { TodosEmpty } from "../TodosEmpty";
+import { TodosError } from "../TodosError";
+import { Modal } from "../modal";
+import {TodoForm} from "../TodoForm";
+import { TodoContext } from "../TodoContext";
 
-function AppUI() {
-  const {
+function AppUI (/* { 
     loading,
     error,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
-  } = React.useContext(TodoContext);
-  
-  return (
-    <>
-      <TodoCounter />
-      <TodoSearch />
+    taskCompleted,
+    searchValue,
+    setSearchValue,
+    typeSearch,
+    setTypeSearch,
+    totalTask,
+    searchedTask,
+    completeTask,
+    deleteTask 
+  } */) {
 
-      <TodoList>
-        {loading && (
-          <>
-            <TodosLoading />
-            <TodosLoading />
-            <TodosLoading />
-          </>
-        )}
-        {error && <TodosError/>}
-        {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
-
-        {searchedTodos.map(todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+    const {
+      loading,
+      error,
+      totalTask,
+      searchedTask,
+      completeTask,
+      deleteTask,
+      openModal,
+      setOpenModal} = React.useContext(TodoContext)
       
-      <CreateTodoButton
-        setOpenModal={setOpenModal}
+  return (
+
+
+
+    <React.Fragment>
+
+      <Headers/>
+      <TodoCounter
+        /* complete={taskCompleted} 
+        total={totalTask} */
+      />
+      <TodoSearch 
+/*           searchValue={searchValue} 
+        setSearchValue={setSearchValue}
+        typeSearch = {typeSearch}
+        setTypeSearch = {setTypeSearch} */
       />
 
+      <TodoList 
+            totalTask = {totalTask}
+            searchedTask={searchedTask}>
+
+              {loading && (
+                <>
+                  <TodosLoading/>
+                  <TodosLoading/>
+                  <TodosLoading/>
+                </>
+              )}
+              {error && <TodosError/>}
+
+              {(!loading && searchedTask.length == 0) && <TodosEmpty/>}
+              
+              {/* Se recorre el array y se crea uno nuevo para que inserto todos los todo item pasandole los propiedades */}
+              {searchedTask.map(todo => 
+                todo = [
+                  <TodoItem
+                    key = {todo.text} 
+                    text = {todo.text} 
+                    completed={todo.completed}
+                    onCompleted = {() => {completeTask(todo[0].props.text)}}//forma como deberia ir ()=> completeTask(todo.text)
+                    onDelete = { () => deleteTask(todo[0].props.text) }
+                  />
+                ]
+              )}
+      </TodoList>
+      
+      <CreateTodoButton/>
+
+      {/* <TodoPanel/> */}
       {openModal && (
         <Modal>
-          <TodoForm />
+          <TodoForm/>
         </Modal>
-      )}
-    </>
-  );
-}
+        )}
 
-export { AppUI };
+    </React.Fragment>
+  )}
+
+export {AppUI}

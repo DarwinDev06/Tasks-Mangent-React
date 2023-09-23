@@ -1,76 +1,109 @@
-import React from 'react';
-import { useLocalStorage } from './useLocalStorage';
 
-const TodoContext = React.createContext();
+import React from "react";
+import { useLocalStorage } from "./UseLocalStorage";
+const TodoContext = React.createContext()
 
-function TodoProvider({ children }) {
+function TodoProvider ({ children }) {
+    
+  //states
   const {
-    item: todos,
-    saveItem: saveTodos,
-    loading,
-    error,
-  } = useLocalStorage('TODOS_V1', []);
-  const [searchValue, setSearchValue] = React.useState('');
-  const [openModal, setOpenModal] = React.useState(false);
+    item: task,
+    saveItem:saveTasks, 
+    loading, 
+    error
+    } = useLocalStorage('TASKS_V1',[])
 
-  const completedTodos = todos.filter(
-    todo => !!todo.completed
-  ).length;
-  const totalTodos = todos.length;
+  const [searchValue,setSearchValue] = React.useState('');
 
-  const searchedTodos = todos.filter(
-    (todo) => {
-      const todoText = todo.text.toLowerCase();
-      const searchText = searchValue.toLowerCase();
-      return todoText.includes(searchText);
+  const [typeSearch, setTypeSearch] = React.useState('All')
+
+  const [openModal, setOpenModal] = React.useState(false)
+
+  console.log(searchValue)
+
+  //derivate states
+
+  const taskCompleted = task.filter(task => !!task.completed).length
+
+  const totalTask = task.length;
+
+/*  console.log('log 1') */
+ /* React.useEffect(()=>{
+    console.log('log 2')
+  }) */
+/*   console.log('log 3')
+  React.useEffect(()=>{
+    console.log('log 444444444444')
+  },[totalTask])
+
+  console.log('log 5') */
+
+  const searchedTask = task.filter((task) => {
+    switch (typeSearch) {
+      case 'All': 
+          const taskText = task.text.toLowerCase();
+          const searchText = searchValue.toLowerCase();
+          return taskText.includes(searchText)
+        break;
+      case 'Complete': 
+          return task.completed === true
+        break;
+      case 'Pending': 
+        return task.completed === false
+      default:
+        break;
     }
-  );
+  })
 
-  const addTodo = (text) => {
-    const newTodos = [...todos];
-    newTodos.push({
+  const addTask = (text) => {
+    const newTask = [...task]
+    newTask.push({
       text,
-      completed: false,
-    });
-    saveTodos(newTodos);
+      completed:false
+    })
+    saveTasks(newTask)
+  }
+
+  const completeTask = (text) => {
+
+    const newTask = [...task]
+    const taskIndex = newTask.findIndex(
+      (task) => task.text === text);
+    newTask[taskIndex].completed = true;
+    saveTasks(newTask);
   };
 
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex(
-      (todo) => todo.text === text
-    );
-    newTodos[todoIndex].completed = true;
-    saveTodos(newTodos);
+  const deleteTask = (text) => {
+    const newTask = [...task]
+
+    const taskIndex = newTask.findIndex(
+      (task) => task.text === text);
+    newTask.splice(taskIndex,1);
+    saveTasks(newTask);
   };
 
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex(
-      (todo) => todo.text === text
-    );
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
-  
-  return (
-    <TodoContext.Provider value={{
-      loading,
-      error,
-      completedTodos,
-      totalTodos,
-      searchValue,
-      setSearchValue,
-      searchedTodos,
-      addTodo,
-      completeTodo,
-      deleteTodo,
-      openModal,
-      setOpenModal,
-    }}>
-      {children}
-    </TodoContext.Provider>
-  );
+    return (
+        <TodoContext.Provider value={
+            {
+                loading,
+                error,
+                taskCompleted,
+                searchValue,
+                setSearchValue,
+                typeSearch,
+                setTypeSearch,
+                totalTask,
+                searchedTask,
+                completeTask,
+                deleteTask,
+                openModal,
+                setOpenModal,
+                addTask
+            }
+        }>
+            { children }
+        </TodoContext.Provider>
+    )
 }
 
-export { TodoContext, TodoProvider };
+export {TodoContext, TodoProvider}

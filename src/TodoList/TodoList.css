@@ -1,5 +1,30 @@
-.TodoList {
-  margin: 0;
-  padding: 0 0 56px 0;
-  list-style: none;
+.taskList {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;/*  */ 
+    /* align-items: center; */
+    background-color: rgba(255, 238, 238, 0.41);
+    /* margin: 8px 360px 8px 360px; */
+    width: 643px;
+    height: auto;
+    margin: auto;
+    padding-bottom: 10px;
+    padding-top: 8px;
+    /* height:100%; */
+/*     position: relative;
+    bottom: 16px; */
+    /* border-radius: 15px; */
+}
+
+.h3 {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    z-index: 5;
+}
+
+.h3Full {
+    z-index: 3;
+    display: none;
 }

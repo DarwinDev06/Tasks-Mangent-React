@@ -1,8 +1,8 @@
 
 import './Headers.css'
 
-import logo from './assets/portapapeles.png'
-import gitHub from './assets/github.png'
+import logo from '../assets/portapapeles.png'
+import gitHub from '../assets/github.png'
 
 function Headers () {
     return (
