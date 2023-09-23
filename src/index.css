@@ -4,14 +4,11 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
+  -moz-osx-font-smoothing: grayscale;
+} */
 
-  background: linear-gradient(rgba(160, 193, 255, 1),rgba(188, 158, 252, 0.5508),rgba(53, 1, 164, 0.74));
-  font-family: 'DM Sans', sans-serif;
-  height: 100%;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  margin: 0 24px;
+  position: relative;
+  min-height: 100vh;
 }
