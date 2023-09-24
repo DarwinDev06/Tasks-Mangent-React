@@ -4,15 +4,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-/*     position: relative;
-    bottom: 24px; */
     background-color: rgba(255, 238, 238, 0.41);
     width: 643px;
     height: auto;
     margin: auto;
-    /* margin: 8px 360px 8px 360px; */
     padding: 10px 0 20px 0;
-    
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius:15px ;
 }
 
 .btnAddTask {
@@ -29,7 +27,6 @@
 
 .btnAddTask:hover {
     background: linear-gradient(rgba(100, 85, 238, 0.551),rgba(118, 204, 238, 0.842));
-    /* background-color: black; */
     color: white;
     cursor: pointer;
 

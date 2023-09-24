@@ -13,19 +13,7 @@ import { Modal } from "../Modal";
 import {TodoForm} from "../TodoForm";
 import { TodoContext } from "../TodoContext";
 
-function AppUI (/* { 
-    loading,
-    error,
-    taskCompleted,
-    searchValue,
-    setSearchValue,
-    typeSearch,
-    setTypeSearch,
-    totalTask,
-    searchedTask,
-    completeTask,
-    deleteTask 
-  } */) {
+function AppUI () {
 
     const {
       loading,
@@ -44,16 +32,8 @@ function AppUI (/* {
     <React.Fragment>
 
       <Headers/>
-      <TodoCounter
-        /* complete={taskCompleted} 
-        total={totalTask} */
-      />
-      <TodoSearch 
-/*           searchValue={searchValue} 
-        setSearchValue={setSearchValue}
-        typeSearch = {typeSearch}
-        setTypeSearch = {setTypeSearch} */
-      />
+      <TodoCounter />
+      <TodoSearch/>
 
       <TodoList 
             totalTask = {totalTask}
@@ -86,7 +66,6 @@ function AppUI (/* {
       
       <CreateTodoButton/>
 
-      {/* <TodoPanel/> */}
       {openModal && (
         <Modal>
           <TodoForm/>

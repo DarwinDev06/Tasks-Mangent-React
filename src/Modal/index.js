@@ -11,12 +11,6 @@ function Modal ({children}) {
     return ReactDOM.createPortal (
         <div className="modal">
             {children}
-            {/* <button className="btnCerrarModal" 
-                onClick={() => {
-                    console.log('cick ceerar')
-                    openModal === true ? setOpenModal(false) : alert('Error, no se puede ejecutar esta accion')
-                }}
-            >cerrar</button> */}
         </div>,
         document.getElementById('modal')
     )

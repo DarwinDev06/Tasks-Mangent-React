@@ -57,7 +57,7 @@ textarea:focus {
     cursor: pointer;
 }
 .btnCancelar {
-    background: rgb(221 55 55);/* rgba(255, 0, 0, 0.226) */
+    background: rgb(221 55 55);
 
 }
 
@@ -67,7 +67,7 @@ textarea:focus {
 }
 
 .btnGuardar {
-    background-color: rgb(91 214 231 / 79%)/* rgba(0, 128, 0, 0.418) */;
+    background-color: rgb(91 214 231 / 79%);
 
 }
 
