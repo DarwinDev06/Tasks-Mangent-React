@@ -4,7 +4,8 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgb(211, 211, 211);
+    background: linear-gradient(rgba(160, 193, 255, 1),rgba(188, 158, 252, 1),rgba(53, 1, 164, 1))/* rgb(211, 211, 211) */;
+    
     width: 90%;
     padding: 30px;
     gap: 8px;
@@ -31,7 +32,7 @@ textarea {
     border-radius: 4px;
 }
 textarea:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(213 210 210 / 49%)/* rgb(255, 255, 255) */;
     border: 1px solid rgba(0, 172, 240, 0.425);
 }
 textarea:focus {
@@ -56,22 +57,22 @@ textarea:focus {
     cursor: pointer;
 }
 .btnCancelar {
-    background: rgba(255, 0, 0, 0.226);
+    background: rgb(221 55 55);/* rgba(255, 0, 0, 0.226) */
 
 }
 
 .btnCancelar:hover {
-    background: rgba(255, 0, 0, 0.384);
+    background: rgba(231, 33, 33, 0.938);
 
 }
 
 .btnGuardar {
-    background-color: rgba(0, 128, 0, 0.418);
+    background-color: rgb(91 214 231 / 79%)/* rgba(0, 128, 0, 0.418) */;
 
 }
 
 .btnGuardar:hover {
-    background-color: rgba(0, 128, 0, 0.568);
+    background-color: rgba(67, 221, 241, 0.897);
 
 }
 
@@ -87,8 +88,8 @@ textarea:focus {
     background: rgba(255, 0, 0, 0.514);
     border-radius: 50%;
     position: absolute;
-    top: 129px;
-    right: 140px;
+    top: 183px;
+    right: 452px;
 }
 
 .closeModal:hover {

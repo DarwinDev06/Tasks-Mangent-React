@@ -18,12 +18,21 @@
 .btnAddTask {
     width: 250px;
     height: 50px;
+    border: 1px solid rgba(188, 158, 252, 0.5508);
     border-radius: 15px;
     background-color: black;
     color: white;
     font-size: 24px;
     font-weight: bold;
     margin-top: 10px;
+}
+
+.btnAddTask:hover {
+    background: linear-gradient(rgba(100, 85, 238, 0.551),rgba(118, 204, 238, 0.842));
+    /* background-color: black; */
+    color: white;
+    cursor: pointer;
+
 }
 
 .iconAddTask {

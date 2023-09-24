@@ -2,13 +2,13 @@
 .modal {
     display: flex;
     flex-direction: column;
-    width: 700px;
-    height: 500px;
+    width: 1325px;
+    height: 627px;
     background: rgba(64, 64, 68, 0.705);
     margin: auto;
     align-items: center;
     justify-content: center;
     position:fixed;
     z-index: 5;
-    top: 22%;
+    top: 2%;
 }

@@ -2,12 +2,9 @@
     display: flex;
     flex-direction: column;
     background-color: rgba(255, 238, 238, 0.41);
-    /* margin: 8px 360px 8px 360px; */
     width: 643px;
     height: auto;
     margin: auto;
-/*     position: relative;
-    bottom: 8px; */
 }
 
 .search {
@@ -15,11 +12,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
-    /*
-    
-    align-content: center;
-    text-align: center; */
 }
 
 .search input {
@@ -58,7 +50,15 @@
     margin-left: 24px;
 }
 
-.btnFilter button {
+/* .btnFilter button {
+    width: 90px;
+    height:30px;
+    margin-right: 50px;
+    border: none;
+    background: none;
+} */
+
+.btnFilterTask{
     width: 90px;
     height:30px;
     margin-right: 50px;
@@ -66,18 +66,16 @@
     background: none;
 }
 
-
-.btnFilter button:hover{
+.btnFilterTask:hover{
     cursor: pointer;
     font-weight: bold;
     border-bottom: 2px solid rgba(96, 2, 153, 1);
 }
 
-.btnFilter button:focus {
+/* .btnFilterTask:focus */.active {
     border-bottom: 3px solid rgba(96, 2, 153, 1);
     font-weight: 800;
 
 }
-
 
 

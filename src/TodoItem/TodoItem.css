@@ -21,9 +21,6 @@ p.taskDescription {
 }
 
 p.taskCompleted {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 400px;
     height: 50px;
     background: linear-gradient(
@@ -47,23 +44,28 @@ p.taskCompleted {
 }
 
 .btnComplet:hover {
-    margin-right: 10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: black;
-    
-    padding: 5px 5px 5px 5px;
+    background: linear-gradient(
+        rgba(13, 160, 28, 0.86),
+        rgba(62, 169, 73, 0.54),
+        rgba(71, 215, 85, 0.49),
+        rgba(65, 203, 87, 0.558),
+        rgba(13, 173, 58, 0.86));
+    cursor: pointer;
 }
 
 .btnCompleted {
-    margin-right: 10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: rgba(150, 151, 150, 0.87);
-    padding: 5px 5px 5px 5px;
+    background: linear-gradient(
+        rgba(13, 160, 28, 0.295),
+        rgba(229, 229, 229, 0.979),
+        rgb(229, 229, 229, 0.979),
+        rgb(229, 229, 229, 0.979),
+        rgb(229, 229, 229, 0.979),
+        rgb(229, 229, 229, 0.979),
+        rgba(13, 173, 58, 0.24)) !important;
+    cursor: not-allowed;
+    pointer-events: none;
 }
+
 
 .btnCancel {
     margin-left: 10px;
@@ -72,6 +74,14 @@ p.taskCompleted {
     border-radius: 10px;
     background-color: black;
     padding: 5px 5px 5px 5px;
-/*     position: relative;
-    right: 33px; */
+}
+
+.btnCancel:hover {
+    background-color: rgba(255, 255, 255, 0.637);
+    cursor: pointer;
+}
+
+.btnCancel:active {
+    background-color: rgba(255, 1, 1, 0.637);
+    cursor: pointer;
 }

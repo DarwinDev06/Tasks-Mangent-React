@@ -19,7 +19,7 @@ function CreateTodoButton() {
                 }}
                 >Add Task 
             </button>
-            <img src={btnAdd} alt='iconAddTask' className='iconAddTask'/>
+            {/* <img src={btnAdd} alt='iconAddTask' className='iconAddTask'/> */}
             {/* añadir iconos svg desde su propia libreria */}
             {<AddIcon/>}
         </div>

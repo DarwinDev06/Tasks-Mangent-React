@@ -20,7 +20,7 @@ function TodoSearch () {
                     value={searchValue} 
                     onChange={(event) => {
                         setSearchValue(event.target.value)
-                        setTypeSearch('All');
+                        /* setTypeSearch('All') */;
 
                     }}
                 />
@@ -29,13 +29,28 @@ function TodoSearch () {
 
             <div className='btnFilter'>
                 <button 
-                    className='btnAll'
-                    onClick={()=>setTypeSearch('All')}
-                    >All</button>
-                <button onClick={()=>setTypeSearch('Pending')}>Pending</button>
-                <button onClick={()=>setTypeSearch('Complete')}>Completed</button>
+                    className={`btnFilterTask ${typeSearch == 'All' ? 'active' : ''}`}
+                    onClick={()=>{
+                        setTypeSearch('All')
+                   } }
+                    >All
+                </button>
+                <button 
+                    className={`btnFilterTask ${typeSearch == 'Pending' ? 'active':''}`}
+                    
+                    onClick={()=>{
+                        setTypeSearch('Pending')
+                    }}
+                    >Pending
+                </button>
+                <button 
+                    className={`btnFilterTask ${typeSearch == 'Completed' ? 'active' : ''}`}
+                    onClick={()=>{
+                        setTypeSearch('Completed')
+                   } }
+                    >Completed
+                </button>
             </div>
-        
         </div>
     );
 }

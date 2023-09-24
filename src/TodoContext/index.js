@@ -19,24 +19,12 @@ function TodoProvider ({ children }) {
 
   const [openModal, setOpenModal] = React.useState(false)
 
-  console.log(searchValue)
-
   //derivate states
 
   const taskCompleted = task.filter(task => !!task.completed).length
 
   const totalTask = task.length;
 
-/*  console.log('log 1') */
- /* React.useEffect(()=>{
-    console.log('log 2')
-  }) */
-/*   console.log('log 3')
-  React.useEffect(()=>{
-    console.log('log 444444444444')
-  },[totalTask])
-
-  console.log('log 5') */
 
   const searchedTask = task.filter((task) => {
     switch (typeSearch) {
@@ -45,11 +33,17 @@ function TodoProvider ({ children }) {
           const searchText = searchValue.toLowerCase();
           return taskText.includes(searchText)
         break;
-      case 'Complete': 
-          return task.completed === true
+      case 'Completed': 
+          
+          const taskTextCompleted = task.text.toLowerCase();
+          const searchTextCompleted = searchValue.toLowerCase();
+          return task.completed === true && taskTextCompleted.includes(searchTextCompleted)
+                
         break;
       case 'Pending': 
-        return task.completed === false
+        const taskTextPending = task.text.toLowerCase();
+        const searchTextPending = searchValue.toLowerCase();
+        return task.completed === false && taskTextPending.includes(searchTextPending)
       default:
         break;
     }
