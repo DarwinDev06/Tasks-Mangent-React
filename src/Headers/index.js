@@ -13,7 +13,7 @@ function Headers () {
         </div>
         <div className="Subtitle">
             <img src={gitHub} alt='logoGitHub' className='logoGitHub'/>
-            <h4> DarwinDev</h4>
+            <h4> DarwinDev06</h4>
         </div>
         
        </>
